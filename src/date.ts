@@ -3,7 +3,7 @@ export const currentMonth = new Date().getMonth();
 const currentDay = new Date().getDate();
 export const currentDate = `${currentYear}-${currentMonth + 1}-${currentDay}`;
 
-const regExp = (date: string, year: number, month: number, day: number) => {
+const regExp = (date: string, year: number, month: number, day: number): string => {
   const regex1 = /^\d{4}-\d{1}-\d{2}$/;
   const regex2 = /^\d{4}-\d{2}-\d{1}$/;
   const regex3 = /^\d{4}-\d{1}-\d{1}$/;
@@ -19,7 +19,7 @@ const regExp = (date: string, year: number, month: number, day: number) => {
   }
 };
 
-export const setDefaultDate = (num: number) => {
+export const setDefaultDate = (num: number): string => {
   const setDate = new Date(currentYear, currentMonth, currentDay + num);
   const setYear = setDate.getFullYear();
   const setMonth = setDate.getMonth();
@@ -30,7 +30,7 @@ export const setDefaultDate = (num: number) => {
   return newDate;
 };
 
-export const lastDayOfNextMonth = (currentYear: number, currentMonth: number) => {
+export const lastDayOfNextMonth = (currentYear: number, currentMonth: number): string => {
   const date = new Date(currentYear, currentMonth + 2, 0);
   const year = date.getFullYear();
   const month = date.getMonth();

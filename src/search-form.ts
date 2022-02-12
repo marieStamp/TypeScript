@@ -4,7 +4,7 @@ import { currentYear, currentMonth, currentDate, setDefaultDate, lastDayOfNextMo
 const checkInDateDefault = setDefaultDate(1);
 const checkOutDateDefault = setDefaultDate(3);
 
-export function renderSearchFormBlock (checkInDate: string = checkInDateDefault, checkOutDate: string = checkOutDateDefault) {
+export function renderSearchFormBlock (checkInDate: string = checkInDateDefault, checkOutDate: string = checkOutDateDefault): void {
 
   renderBlock(
     'search-form-block',
