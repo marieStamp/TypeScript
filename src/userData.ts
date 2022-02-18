@@ -11,7 +11,7 @@ const userData = {
 localStorage.setItem('user', JSON.stringify(userData));
 localStorage.setItem('favoritesAmount', '5');
   
-const getDataFromLocalStorage = (key: string): string => {
+const getDataFromLocalStorage = (key: string): string | null => {
   return localStorage.getItem(key);
 }
 
@@ -20,13 +20,18 @@ function instanceOfUser(object: any): object is User {
 }
   
 export const getUserData = (): User => {
-  const data: unknown = JSON.parse(getDataFromLocalStorage('user'));
-  if (instanceOfUser(data)) {
-    return data
-  } else {
-    return {userName: '', avatarUrl: ''};
+  const func = getDataFromLocalStorage('user');
+  if (func !== null) {
+    const data: unknown = JSON.parse(func);
+    if (instanceOfUser(data)) {
+      return data
+    } else {
+      return {userName: '', avatarUrl: ''};
+    }
   }
-};  
+  return {userName: '', avatarUrl: ''};
+};
+
   
   
 export const getFavoritesAmount = (): number => {

@@ -1,5 +1,5 @@
 abstract class MyGraphicsPrimitive2D {
-  protected rectangularArea: number[];
+  protected rectangularArea: number[] = [];
     protected abstract movePrimitive(offsetX: number, offsetY: number): void;
 }
   
